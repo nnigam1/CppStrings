@@ -15,14 +15,14 @@ string findSum(string str1, string str2)
 	if (str1.length() < str2.length())
 		swap(str1, str2);
 
-	int m = str1.length();
-	int n = str2.length();
+	int len1 = str1.length();
+	int len2 = str2.length();
 
-	int diff = m - n;
+	int diff = len1 - len2;
 	int carry = 0;
 	string ans = "";
 
-	for (int i = n-1; i>=0; i--)
+	for (int i = len2-1; i>=0; i--)
 	{
 		int ds = (str2[i] - '0') + (str1[i + diff]) - '0' + carry;
 		ans.push_back(ds % 10 + '0');
@@ -32,7 +32,7 @@ string findSum(string str1, string str2)
 	// For rest of the numbers keep adding carry
 	// as basic mathematics.
 
-	for (int i = m-n; i>0; i--)
+	for (int i = len1-len2; i>0; i--)
 	{
 		int ds = (str1[i - 1] - '0') + carry;
 		ans.push_back(ds % 10 + '0');
